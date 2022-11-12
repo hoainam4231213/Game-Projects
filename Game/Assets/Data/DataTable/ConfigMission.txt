@@ -1,0 +1,4 @@
+id	mission_id	mission_name	description	missionType	waves	reward	map
+1	M_001	Still Alive	Still Alive	1	W_001:1;W_002:2	20	Ingame
+2	M_002	Kill All	Kill All	1	W_001:1;W_003:2:W_004:3	20	Ingame
+3	M_003	Shoot em up	Shoot em up	2	W_001:1;W_004:2:W_005:1	20	Ingame Night

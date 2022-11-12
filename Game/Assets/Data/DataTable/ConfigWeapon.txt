@@ -1,0 +1,5 @@
+id	weapon_id	wp_name	description	damage	clip_size
+1	W_001	Piston	Hangun	10	12
+2	W_002	Shotgun	Shotgun	50	24
+3	W_003	MachineGun	MachineGun	10	100
+4	W_004	RocketLauncher	RocketLauncher	50	4

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dda86edfd301c940afef68a422cfa28, type: 3}
+  m_Name: ConfigWeapon
+  m_EditorClassIdentifier: 
+  records:
+  - id: 1
+    weapon_id: W_001
+    weapon_name: Piston
+    description: Hangun
+    damge: 10
+    clip_size: 12
+  - id: 2
+    weapon_id: W_002
+    weapon_name: Shotgun
+    description: Shotgun
+    damge: 50
+    clip_size: 24
+  - id: 3
+    weapon_id: W_003
+    weapon_name: MachineGun
+    description: MachineGun
+    damge: 10
+    clip_size: 100
+  - id: 4
+    weapon_id: W_004
+    weapon_name: RocketLauncher
+    description: RocketLauncher
+    damge: 50
+    clip_size: 4

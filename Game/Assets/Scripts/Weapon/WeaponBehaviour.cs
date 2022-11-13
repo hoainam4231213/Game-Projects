@@ -10,25 +10,29 @@ public class WeaponData
 public class WeaponBehaviour : MonoBehaviour
 {
     public WeaponData weaponData;
-    [NonSerialized]
     public Transform trans_aim;
     public IWeaponHandle IWPHandle;
     public AnimatorOverrideController animatorOverride;
-    [NonSerialized]
     public PlayerDatabinding databinding;
     public Transform prefab_projecties;
     public Transform prefab_impact;
     public MuzzleFlash muzzleFlash;
 
+    [NonSerialized]
     public float damge;
+    [NonSerialized]
     public int clip_size;
     public float rof;
     public float reloadTime;
+    private float ChangeGunTime = 1;
     private float timeFire;
+    public float force;
+    [NonSerialized]
     public int projecties;
 
     private bool Reloading;
     private bool isFire;
+    private bool isChangeGun;
 
     
     // Start is called before the first frame update
@@ -61,7 +65,7 @@ public class WeaponBehaviour : MonoBehaviour
         timeFire += Time.deltaTime;
         if(isFire)
         {
-            if(timeFire >= rof && projecties > 0 && !Reloading)
+            if(timeFire >= rof && projecties > 0 && !Reloading && !isChangeGun)
             {
                 timeFire = 0;
 
@@ -84,9 +88,10 @@ public class WeaponBehaviour : MonoBehaviour
             gameObject.SetActive(true);
             databinding.Empty = true;
             databinding.ChangeAnimatorController(animatorOverride);
+            StartCoroutine("ChangeGunning");
             if (projecties <= 0)
             {
-                OnReload();
+                Invoke("OnReload", ChangeGunTime);
             }
         }
         else
@@ -98,7 +103,8 @@ public class WeaponBehaviour : MonoBehaviour
     private void OnReload()
     {
         Reloading = true;
-        StartCoroutine("ReLoading");
+        if(gameObject.activeSelf)
+            StartCoroutine("ReLoading");
     }
 
     IEnumerator ReLoading()
@@ -106,6 +112,13 @@ public class WeaponBehaviour : MonoBehaviour
         databinding.Reload = true;
         yield return new WaitForSeconds(reloadTime);
         EndReload();
+    }
+    IEnumerator ChangeGunning()
+    {
+        isChangeGun = true;
+        databinding.Draw = true;
+        yield return new WaitForSeconds(ChangeGunTime);
+        isChangeGun = false;
     }
 
     public void EndReload()

@@ -50,6 +50,14 @@ public class PlayerDatabinding : MonoBehaviour
         }
     }
 
+    public bool Draw
+    {
+        set
+        {
+            if (value)
+                animator.Play("Draw", 1, 0);
+        }
+    }
     private int Anim_key_X;
     private int Anim_key_Y;
     // Start is called before the first frame update

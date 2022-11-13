@@ -58,10 +58,22 @@ public class JoyStickControl : MonoBehaviour, IBeginDragHandler, IPointerDownHan
     // Update is called once per frame
     void Update()
     {
-        moveDir.x = (knod_js.anchoredPosition.x - anchor_js.anchoredPosition.x) / limit_radious;
-        moveDir.y = (knod_js.anchoredPosition.y - anchor_js.anchoredPosition.y) / limit_radious;
-        moveDir.x = Mathf.Clamp(moveDir.x, -1, 1);
-        moveDir.y = Mathf.Clamp(moveDir.y, -1, 1);
+        
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
+
+        Vector3 move = new Vector3(x, y, 0);
+        if (move.magnitude > 0)
+        {
+            moveDir = move;
+        }
+        else
+        {
+            moveDir.x = (knod_js.anchoredPosition.x - anchor_js.anchoredPosition.x) / limit_radious;
+            moveDir.y = (knod_js.anchoredPosition.y - anchor_js.anchoredPosition.y) / limit_radious;
+            moveDir.x = Mathf.Clamp(moveDir.x, -1, 1);
+            moveDir.y = Mathf.Clamp(moveDir.y, -1, 1);
+        }
 
 
         InputControlPlayer.instance.OnMoveInput(moveDir);

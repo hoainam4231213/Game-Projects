@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6980307580006375303}
+  - component: {fileID: -7906379626749275318}
   m_Layer: 0
   m_Name: ImpactShotGun
   m_TagString: Untagged
@@ -32,6 +33,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-7906379626749275318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3081124407447888310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 671eb280037c2e14f9d47c80f88806c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeDelay: 2
+  particle: {fileID: 2067636565529368108}
+  pool_nameImpact: ImpactShotGun
 --- !u!1001 &2193554195235305988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -162,6 +178,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 114355610240550960, guid: 7bef351ddc33ae044b671a7664396a20, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7bef351ddc33ae044b671a7664396a20, type: 3}
+--- !u!198 &2067636565529368108 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198344661946723368, guid: 7bef351ddc33ae044b671a7664396a20, type: 3}
+  m_PrefabInstance: {fileID: 2193554195235305988}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2189087907543097892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4541196389373984, guid: 7bef351ddc33ae044b671a7664396a20, type: 3}

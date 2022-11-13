@@ -100,7 +100,9 @@ MonoBehaviour:
   clip_size: 0
   rof: 1.2
   reloadTime: 3.7
+  force: 2000
   projecties: 0
+  numberBullet: 6
 --- !u!1001 &6352268088108003474
 PrefabInstance:
   m_ObjectHideFlags: 0

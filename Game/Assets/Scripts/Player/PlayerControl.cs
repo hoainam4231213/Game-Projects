@@ -13,6 +13,24 @@ public class PlayerControl : MonoBehaviour
     public float speed;
     private bool isGround;
     public bool isAim;
+    private int maxHP = 200;
+    private int hp;
+    public int HP
+    {
+        get
+        {
+            return hp;
+        }
+    }
+
+    public int MaxHP
+    {
+        get
+        {
+            return maxHP;
+        }
+    }
+    public event Action<int,int> OnHPChange;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -20,7 +38,8 @@ public class PlayerControl : MonoBehaviour
     }
     void Start()
     {
-        
+        hp = maxHP;
+        OnHPChange?.Invoke(hp,maxHP);
     }
 
     // Update is called once per frame
@@ -62,8 +81,11 @@ public class PlayerControl : MonoBehaviour
         pos.y = isGround ? 0 : -1;
         
         
-        characterController.Move(pos * Time.deltaTime * speed);
+        characterController.Move(pos * Time.deltaTime * speed); 
+    }
 
-        
+    public void OnDamge()
+    {
+        OnHPChange?.Invoke(hp,maxHP);
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class WeaponControl : MonoBehaviour
     public List<WeaponBehaviour> weaponBehaviours = new List<WeaponBehaviour>();
     private WeaponBehaviour currentGun;
     private int index = -1;
+
+    public event Action<WeaponBehaviour> OnChangeGun;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,5 +60,6 @@ public class WeaponControl : MonoBehaviour
         currentGun?.GetNextGun(false);
         currentGun = weaponBehaviours[index];
         currentGun.GetNextGun(true);
+        OnChangeGun?.Invoke(currentGun);
     }
 }

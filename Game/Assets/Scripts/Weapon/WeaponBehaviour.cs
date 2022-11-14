@@ -34,7 +34,7 @@ public class WeaponBehaviour : MonoBehaviour
     private bool isFire;
     private bool isChangeGun;
 
-    
+    public event Action<int, int> OnAmoChange;
     // Start is called before the first frame update
     
     public void Init(WeaponData weaponData)
@@ -62,6 +62,7 @@ public class WeaponBehaviour : MonoBehaviour
 
     public void Update()
     {
+        OnAmoChange?.Invoke(projecties,clip_size);
         timeFire += Time.deltaTime;
         if(isFire)
         {
@@ -87,7 +88,7 @@ public class WeaponBehaviour : MonoBehaviour
         {
             gameObject.SetActive(true);
             databinding.Empty = true;
-            databinding.ChangeAnimatorController(animatorOverride);
+            databinding.ChangeAnimatorController(animatorOverride);       
             StartCoroutine("ChangeGunning");
             if (projecties <= 0)
             {

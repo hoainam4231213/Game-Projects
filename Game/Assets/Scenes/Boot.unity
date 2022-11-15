@@ -2212,6 +2212,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 1125411240}
   text: {fileID: 369919705}
+--- !u!1 &685325031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 685325032}
+  - component: {fileID: 685325033}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &685325032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685325031}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2062981012}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &685325033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685325031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 756e501d9b3e73e43bb63599ee267b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  configMission:
+    id: 0
+    mission_id: 
+    mission_name: 
+    description: 
+    mission_type: 0
+    waves: 
+    rewards: 
+    map: 
 --- !u!1 &736086858
 GameObject:
   m_ObjectHideFlags: 0
@@ -4850,7 +4903,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a2c9a969677d3489ba4557d412a599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConfigWeapon: {fileID: 0}
+  configWeapon: {fileID: 0}
+  configEnemy: {fileID: 0}
+  configMission: {fileID: 0}
+  configWave: {fileID: 0}
 --- !u!1 &2037727103
 GameObject:
   m_ObjectHideFlags: 0
@@ -5051,6 +5107,7 @@ Transform:
   - {fileID: 2026821961}
   - {fileID: 21038249}
   - {fileID: 601197264}
+  - {fileID: 685325032}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

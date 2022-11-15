@@ -1,27 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEditor;
 using UnityEngine;
+using System.IO;
 
-public static class BYDataTableMaker 
+public static class BYDataTableMaker
 {
-    [MenuItem("Assets/Create Binary file for tab delimited(txt)",false,1)]
+    [MenuItem("Assets/BY/Create Binary file for tab delimited(txt)", false, 1)]
     // Start is called before the first frame update
     private static void CreateBinaryFile()
     {
-        foreach(UnityEngine.Object obj in Selection.objects)
+        foreach (Object obj in Selection.objects)
         {
             TextAsset txtFile = (TextAsset)obj;
             string tableName = Path.GetFileNameWithoutExtension(AssetDatabase.GetAssetPath(txtFile));
-            ScriptableObject scriptableObject = ScriptableObject.CreateInstance(tableName);
-            if (scriptableObject == null)
+            ScriptableObject scriptable = ScriptableObject.CreateInstance(tableName);
+            if (scriptable == null)
                 return;
-            AssetDatabase.CreateAsset(scriptableObject, "Assets/Resources/DataTable/" + tableName + ".asset");
+            AssetDatabase.CreateAsset(scriptable, "Assets/Resources/DataTable/" + tableName + ".asset");
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
 
-            BYDataBase bYDataBase = (BYDataBase)scriptableObject;
+            BYDataBase bYDataBase = (BYDataBase)scriptable;
             bYDataBase.CreateBinaryFile(txtFile);
             EditorUtility.SetDirty(bYDataBase);
         }

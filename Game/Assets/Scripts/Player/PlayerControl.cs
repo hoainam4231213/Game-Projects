@@ -84,8 +84,9 @@ public class PlayerControl : MonoBehaviour
         characterController.Move(pos * Time.deltaTime * speed); 
     }
 
-    public void OnDamge()
+    public void OnDamge(EnemyDamageData enemyDamageData)
     {
+        hp -= enemyDamageData.damage;
         OnHPChange?.Invoke(hp,maxHP);
     }
 }

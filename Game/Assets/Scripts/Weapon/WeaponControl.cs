@@ -8,7 +8,7 @@ public class WeaponControl : MonoBehaviour
     public Transform aim_point;
     public Transform trans_parent;
     public List<string> ls_weapon;
-    public List<WeaponBehaviour> weaponBehaviours = new List<WeaponBehaviour>();
+    private List<WeaponBehaviour> weaponBehaviours = new List<WeaponBehaviour>();
     private WeaponBehaviour currentGun;
     private int index = -1;
 
@@ -18,7 +18,7 @@ public class WeaponControl : MonoBehaviour
     {
         foreach(string s in ls_weapon)
         {
-            ConfigWeaponRecord cf_wp = ConfigManager.instance.ConfigWeapon.GetRecordByKeySearch(s);
+            ConfigWeaponRecord cf_wp = ConfigManager.instance.configWeapon.GetRecordByKeySearch(s);
             GameObject go_wpp = Instantiate(Resources.Load("Weapon/" + s, typeof(GameObject))) as GameObject;
             go_wpp.transform.SetParent(trans_parent, false);
             go_wpp.SetActive(false);

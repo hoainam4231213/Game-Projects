@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDelay: 2
   particle: {fileID: 2067636565529368108}
-  pool_nameImpact: ImpactHandGun
+  pool_nameImpact: ImpactMachineGun
 --- !u!1001 &2193554195235305988
 PrefabInstance:
   m_ObjectHideFlags: 0

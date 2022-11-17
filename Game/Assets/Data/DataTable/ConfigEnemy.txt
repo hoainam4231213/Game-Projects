@@ -1,0 +1,6 @@
+id	enemy_id	enemy_name	description	hp	damage
+1	E_001	Zombie A	Normal enemy	100	5
+2	E_002	Zombie B	Normal enemy	100	5
+3	E_003	Zombie C	Normal enemy	100	5
+4	E_004	Zombie D	Normal enemy	100	5
+5	E_005	Zombie Boss	Boss Enemy	500	10

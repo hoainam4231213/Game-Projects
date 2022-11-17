@@ -29,12 +29,13 @@ public class IShotGun : IWeaponHandle
             bullet_trans.position = wp_behaviour.muzzleFlash.transform.position;
             Vector3 pos = wp_behaviour.trans_aim.position;
             pos.y = bullet_trans.position.y;
-            pos.x += UnityEngine.Random.RandomRange(-0.3f, 0.3f);
-            pos.y += UnityEngine.Random.RandomRange(-0.3f,0.3f);
+            pos.x -= UnityEngine.Random.RandomRange(-0.3f, 0.3f);
+            pos.y -= UnityEngine.Random.RandomRange(-0.3f,0.3f);
             Vector3 dir = pos - bullet_trans.position;
             dir.Normalize();
             BulletData bulletData = new BulletData();
             bulletData.dir = dir;
+            bulletData.damge = wp_behaviour.damge;
             bulletData.force = wp_behaviour.force;
             bullet_trans.GetComponent<BulletWeapon>().Setup(bulletData);
         }

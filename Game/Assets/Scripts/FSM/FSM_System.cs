@@ -17,13 +17,13 @@ public class FSM_System : MonoBehaviour
     {
         curentState_?.Exits();
         curentState_ = new_state;
-        new_state.OnEnter();
+        curentState_.OnEnter();
     }
-    public void GotoState(FSM_State new_state,object data)
+    public void GotoState(FSM_State new_state, object data)
     {
         curentState_?.Exits();
         curentState_ = new_state;
-        new_state.OnEnter(data);
+        curentState_.OnEnter(data);
     }
 
     #endregion
@@ -34,9 +34,9 @@ public class FSM_System : MonoBehaviour
 
     }
     // Start is called before the first frame update
-    public  virtual void Start()
+    public virtual void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -45,14 +45,31 @@ public class FSM_System : MonoBehaviour
         curentState_?.Update();
     }
 
- 
+
 
     public virtual void FixedUpdate()
     {
         curentState_?.FixedUpdate();
     }
 
-    public virtual void LateUpdate()
+    private void OnAnimationEnter()
+    {
+        curentState_?.OnAnimationEnter();
+    }
+    private void OnAnimationUpdate()
+    {
+        curentState_?.OnAnimationUpdate();
+    }
+    private void OnAnimationMiddle()
+    {
+        curentState_?.OnAnimationMiddle();
+    }
+    private void OnAnimationExit()
+    {
+        curentState_?.OnAnimationExit();
+    }
+
+    private void LateUpdate()
     {
         curentState_?.LateUpdate();
     }

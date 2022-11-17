@@ -42,11 +42,14 @@ public class GameUI : MonoBehaviour
 
     private void OnHPChange(int hp, int maxhp)
     {
-        health_bar.fillAmount = hp / maxhp;
+        health_bar.fillAmount = (float)hp / (float)maxhp;
         amount_hp.text = hp + "/" + maxhp;
     }
 
-
+    public void OnSwitchGun()
+    {
+        weaponControl.ChangeGun();
+    }
 
     // Update is called once per frame
     void Update()

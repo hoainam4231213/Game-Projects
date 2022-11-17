@@ -17,6 +17,8 @@ public class ConfigManager : BYSingleton<ConfigManager>
 
     IEnumerator Init(Action callback)
     {
+        Application.targetFrameRate = 60; 
+        
         configWeapon = Resources.Load("DataTable/ConfigWeapon", typeof(ScriptableObject)) as ConfigWeapon;
         yield return new WaitUntil(() => configWeapon != null);
 

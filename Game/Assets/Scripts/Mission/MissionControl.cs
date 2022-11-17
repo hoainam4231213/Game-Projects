@@ -27,7 +27,7 @@ public class MissionControl : BYSingleton<MissionControl>
     IEnumerator GetNextWave()
     {
         waveIndex++;
-        if (waveIndex > waveInits.Count)
+        if (waveIndex >= waveInits.Count)
         {
             OnEndWave();
         }
@@ -50,6 +50,8 @@ public class MissionControl : BYSingleton<MissionControl>
     {
         ConfigEnemyRecord configEnemy = ConfigManager.instance.configEnemy.GetRecordByKeySearch(id);
         GameObject go_enemy = Instantiate(Resources.Load("Enemy/" + configEnemy.Enemy_id, typeof(GameObject))) as GameObject;
+        Quaternion q = Quaternion.Euler(0, UnityEngine.Random.RandomRange(0, 360f), 0);
+        go_enemy.transform.rotation = q;
         go_enemy.transform.position = SpawnPos.instance.GetPos().position;
         EnemyControl enemyControl = go_enemy.GetComponent<EnemyControl>();
         enemyControl.Setup(new EnemyDataInit { cf = configEnemy});
@@ -69,6 +71,6 @@ public class MissionControl : BYSingleton<MissionControl>
 
     public virtual void OnEndWave()
     {
-
+        Debug.Log("end game");
     }
 }

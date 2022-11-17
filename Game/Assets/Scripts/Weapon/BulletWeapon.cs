@@ -68,6 +68,9 @@ public class BulletWeapon : MonoBehaviour
 
                 BYPoolManager.instance.DeSpawn(pool_name, trans);
 
+                EnemyControl enemyControl = hitInfo.collider.gameObject.GetComponent<EnemyControl>();
+                if(enemyControl != null)
+                    enemyControl.OnDamge(data);
             }
         }
     }

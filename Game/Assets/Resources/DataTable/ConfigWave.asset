@@ -19,8 +19,8 @@ MonoBehaviour:
     number: 1
   - id: 2
     wave_id: W_002
-    enemies_id: E_001;E_002;E_003
-    number: 15
+    enemies_id: E_001
+    number: 2
   - id: 3
     wave_id: W_003
     enemies_id: E_001;E_002;E_003

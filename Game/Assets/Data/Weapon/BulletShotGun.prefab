@@ -67,7 +67,7 @@ MonoBehaviour:
     m_Bits: 384
   pool_name: BulletShotGun
   pool_nameImpact: ImpactShotGun
-  timeFly: 0.15
+  timeFly: 0.1
 --- !u!1001 &1230925946450116883
 PrefabInstance:
   m_ObjectHideFlags: 0

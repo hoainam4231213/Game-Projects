@@ -23,17 +23,17 @@ MonoBehaviour:
     weapon_id: W_002
     weapon_name: Shotgun
     description: Shotgun
-    damge: 50
+    damge: 5
     clip_size: 24
   - id: 3
     weapon_id: W_003
     weapon_name: MachineGun
     description: MachineGun
-    damge: 10
+    damge: 4
     clip_size: 100
   - id: 4
     weapon_id: W_004
     weapon_name: RocketLauncher
     description: RocketLauncher
-    damge: 50
+    damge: 40
     clip_size: 4

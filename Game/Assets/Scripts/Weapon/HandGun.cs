@@ -30,6 +30,7 @@ public class IHandGun : IWeaponHandle
         dir.Normalize();
         BulletData bulletData = new BulletData();
         bulletData.dir = dir;
+        bulletData.damge = wp_behaviour.damge;
         bulletData.force = wp_behaviour.force;
         bullet_trans.GetComponent<BulletWeapon>().Setup(bulletData);
     }

@@ -13,13 +13,13 @@ public class WeaponBehaviour : MonoBehaviour
     public Transform trans_aim;
     public IWeaponHandle IWPHandle;
     public AnimatorOverrideController animatorOverride;
+    [NonSerialized]
     public PlayerDatabinding databinding;
     public Transform prefab_projecties;
     public Transform prefab_impact;
     public MuzzleFlash muzzleFlash;
 
-    [NonSerialized]
-    public float damge;
+    public int damge;
     [NonSerialized]
     public int clip_size;
     public float rof;

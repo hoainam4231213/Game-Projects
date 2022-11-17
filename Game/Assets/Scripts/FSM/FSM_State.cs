@@ -24,6 +24,26 @@ public class FSM_State
     {
 
     }
+
+    public virtual void OnAnimationEnter()
+    {
+
+    }
+
+    public virtual void OnAnimationUpdate()
+    {
+
+    }
+
+    public virtual void OnAnimationMiddle()
+    {
+
+    }
+
+    public virtual void OnAnimationExit()
+    {
+
+    }
     public virtual void Exits()
     {
 

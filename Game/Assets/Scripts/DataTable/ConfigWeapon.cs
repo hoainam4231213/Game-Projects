@@ -36,8 +36,8 @@ public class ConfigWeaponRecord
         }
     }
     [SerializeField]
-    private float damge;
-    public float Damge
+    private int damge;
+    public int Damge
     {
         get
         {

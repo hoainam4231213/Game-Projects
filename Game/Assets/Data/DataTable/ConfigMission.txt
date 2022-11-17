@@ -1,4 +1,0 @@
-id	mission_id	mission_name	description	missionType	waves	reward	map
-1	M_001	Kill All	Kill All	1	W_001:5;W_002:10	20	Scene City
-2	M_002	Kill All	Kill All	1	W_001:5;W_003:5:W_004:5	20	Scene City
-3	M_003	Shoot em up	Shoot em up	2	W_001:1;W_004:2:W_005:1	20	Scene Town

@@ -59,7 +59,7 @@ public class MissionControl : BYSingleton<MissionControl>
         Quaternion q = Quaternion.Euler(0, UnityEngine.Random.RandomRange(0, 360f), 0);
         go_enemy.transform.rotation = q;
         Transform point_Trans = SpawnPos.instance.GetPos();
-        go_enemy.transform.position = point_Trans.localPosition;
+        go_enemy.transform.position = point_Trans.position;
         EnemyControl enemyControl = go_enemy.GetComponent<EnemyControl>();
         enemyControl.Setup(new EnemyDataInit { cf = configEnemy});
 

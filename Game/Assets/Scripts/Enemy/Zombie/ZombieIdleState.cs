@@ -11,6 +11,7 @@ public class ZombieIdleState : FSM_State
     public override void OnEnter()
     {
         parent.databinding.Speed = 1;
+        parent.meshAgent.enabled = true;
         parent.meshAgent.speed = 2.5f;
         parent.meshAgent.stoppingDistance = parent.attackRange;
         countAttack = 0;

@@ -16,7 +16,7 @@ public class EnemyControl : FSM_System
     public NavMeshAgent meshAgent;
     public Transform trans;
     public Transform player_target;
-    public WeaponControl weaponControl;
+    public PlayerControl playerControl;
     public ConfigEnemyRecord cf;
     public int maxHP;
     public int hp;
@@ -28,7 +28,8 @@ public class EnemyControl : FSM_System
         trans = transform;
         meshAgent = gameObject.GetComponent<NavMeshAgent>();
         player_target = GameObject.FindGameObjectWithTag("Player").transform;
-        weaponControl = GameObject.FindObjectOfType<WeaponControl>();
+        playerControl = GameObject.FindObjectOfType<PlayerControl>();
+        meshAgent.enabled = false;
     }
     public virtual void Setup(EnemyDataInit enemyDataInit)
     {
@@ -40,17 +41,17 @@ public class EnemyControl : FSM_System
     public override void Update()
     {
         base.Update();
-        if (Vector3.Distance(player_target.position, trans.position) <= weaponControl.shootRange)
+        if (Vector3.Distance(player_target.position, trans.position) <= playerControl.shootRange)
         {
-            weaponControl.AddToListEnemy(trans);
+            playerControl.AddEnemyToList(trans);
         }
         else
         {
-            weaponControl.RemoveTolistEnemy(trans);
+            playerControl.RemoveEnemyFromList(trans);
         }
 
-        if (hp < 0)
-            weaponControl.RemoveTolistEnemy(trans);
+        if (hp <= 0)
+            playerControl.RemoveEnemyFromList(trans);
     }
 
     public virtual void OnDamge(BulletData bulletData)
@@ -61,7 +62,7 @@ public class EnemyControl : FSM_System
     public void OnDead()
     {
         MissionControl.instance.OnEnemyDead(this);
-        weaponControl.RemoveTolistEnemy(trans);
+        playerControl.RemoveEnemyFromList(trans);
         Destroy(gameObject);
     }
 }

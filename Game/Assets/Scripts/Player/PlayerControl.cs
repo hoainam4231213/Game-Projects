@@ -9,12 +9,15 @@ public class PlayerControl : MonoBehaviour
     public Transform trans;
     public CharacterController characterController;
     public PlayerDatabinding databinding;
+    public WeaponControl weaponControl;
     private Vector3 moveDir;
     public float speed;
     private bool isGround;
     public bool isAim;
     private int maxHP = 200;
     private int hp;
+    public float shootRange = 9;
+    public List<Transform> enemy_list = new List<Transform>();
     public int HP
     {
         get
@@ -35,6 +38,7 @@ public class PlayerControl : MonoBehaviour
     private void Awake()
     {
         trans = transform;
+        weaponControl = gameObject.GetComponent<WeaponControl>();
     }
     void Start()
     {
@@ -77,7 +81,7 @@ public class PlayerControl : MonoBehaviour
 
         characterController.Move(pos * Time.deltaTime * speed);
 
-        
+        DectectEnemy();
     }
 
     public void OnDamge(EnemyDamageData enemyDamageData)
@@ -89,5 +93,34 @@ public class PlayerControl : MonoBehaviour
             MissionControl.instance.OnPlayerDead();
         }
         OnHPChange?.Invoke(hp,maxHP);
+    }
+
+    public void DectectEnemy()
+    {
+        if (enemy_list.Count > 0)
+        {
+            Vector3 dir = enemy_list[0].position - trans.position;
+            dir.Normalize();
+            Quaternion q = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z), Vector3.up);
+            trans.rotation = Quaternion.Slerp(trans.rotation, q, Time.deltaTime * 360);
+            isAim = true;
+            weaponControl.currentGun.OnFire(true);
+        }
+        else
+        {
+            isAim = false;
+            weaponControl.currentGun.OnFire(false);
+        }
+    }
+
+    public void AddEnemyToList(Transform trans)
+    {
+        if (!enemy_list.Contains(trans))
+            enemy_list.Add(trans);
+    }
+
+    public void RemoveEnemyFromList(Transform trans)
+    {
+        enemy_list.Remove(trans);
     }
 }

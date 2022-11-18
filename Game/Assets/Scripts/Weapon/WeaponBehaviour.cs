@@ -23,14 +23,14 @@ public class WeaponBehaviour : MonoBehaviour
     public int damge;
     [NonSerialized]
     public int clip_size;
-    public float rof;
     public float reloadTime;
-    private float ChangeGunTime = 1;
-    private float timeFire;
     public float force;
     [NonSerialized]
     public int projecties;
 
+    private float rof;
+    private float ChangeGunTime = 1;
+    private float timeFire;
     private bool Reloading;
     private bool isFire;
     private bool isChangeGun;
@@ -44,6 +44,7 @@ public class WeaponBehaviour : MonoBehaviour
         this.trans_aim = weaponData.trans_aim;
         databinding = gameObject.GetComponentInParent<PlayerDatabinding>();
         muzzleFlash = gameObject.GetComponentInChildren<MuzzleFlash>();
+        rof = weaponData.cf.Rof;
         damge = weaponData.cf.Damge;
         clip_size = weaponData.cf.Clip_size;
         projecties = clip_size / 2;

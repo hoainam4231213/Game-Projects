@@ -53,6 +53,15 @@ public class ConfigWeaponRecord
             return clip_size;
         }
     }
+    [SerializeField]
+    private float rof;
+    public float Rof
+    {
+        get
+        {
+            return rof;
+        }
+    }
 }
 
 

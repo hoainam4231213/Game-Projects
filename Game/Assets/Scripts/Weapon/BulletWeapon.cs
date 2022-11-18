@@ -19,7 +19,8 @@ public class BulletWeapon : MonoBehaviour
     public LayerMask mask;
     public string pool_name;
     public string pool_nameImpact;
-
+    public string pool_nameBloodImpact;
+    private Transform trans_impact;
     public float timeFly;
     private bool isFly;
 
@@ -62,15 +63,29 @@ public class BulletWeapon : MonoBehaviour
             if(Physics.Raycast(trans.position, trans.forward, out hitInfo, 0.5f, mask))
             {
                 isFly = false;
-                Transform trans_impact = BYPoolManager.instance.Spawn(pool_nameImpact);
-                trans_impact.position = hitInfo.point;
-                trans_impact.forward = hitInfo.normal;
+
+                
 
                 BYPoolManager.instance.DeSpawn(pool_name, trans);
-
                 EnemyControl enemyControl = hitInfo.collider.gameObject.GetComponent<EnemyControl>();
-                if(enemyControl != null)
+                if (enemyControl != null)
+                {
                     enemyControl.OnDamge(data);
+                    trans_impact = BYPoolManager.instance.Spawn(pool_nameBloodImpact);
+
+                }
+                else
+                {
+                    trans_impact = BYPoolManager.instance.Spawn(pool_nameImpact);
+                }
+
+                if (trans_impact != null)
+                {
+                    trans_impact.position = hitInfo.point;
+                    trans_impact.forward = hitInfo.normal;
+                }
+
+
             }
         }
     }

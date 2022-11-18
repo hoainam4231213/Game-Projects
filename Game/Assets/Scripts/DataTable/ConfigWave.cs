@@ -18,6 +18,15 @@ public class ConfigWaveRecord
         }
     }
     [SerializeField]
+    private string wave_name;
+    public string Wave_name
+    {
+        get
+        {
+            return wave_name;
+        }
+    }
+    [SerializeField]
     private string enemies_id;
     public List<string> Enemies_id
     {

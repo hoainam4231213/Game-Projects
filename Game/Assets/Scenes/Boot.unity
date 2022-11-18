@@ -2315,7 +2315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9307c8417aac2d48a8f7c7f30bfd866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadGame: {fileID: 648456476}
   loadingScene: {fileID: 648456476}
   progress_lb: {fileID: 1982611036}
   progress_sl: {fileID: 2142056814}
@@ -2643,7 +2642,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchor: {fileID: 789854048}
-  baseDialogs: []
 --- !u!222 &1142080688
 CanvasRenderer:
   m_ObjectHideFlags: 0

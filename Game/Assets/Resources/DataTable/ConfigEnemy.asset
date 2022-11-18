@@ -19,6 +19,12 @@ MonoBehaviour:
     description: Normal enemy
     hp: 100
     damage: 5
+  - id: 10
+    enemy_id: E_0010
+    enemy_name: Zombie Boss
+    description: Boss Enemy
+    hp: 500
+    damage: 20
   - id: 2
     enemy_id: E_002
     enemy_name: Zombie B
@@ -39,7 +45,31 @@ MonoBehaviour:
     damage: 5
   - id: 5
     enemy_id: E_005
-    enemy_name: Zombie Boss
-    description: Boss Enemy
-    hp: 500
-    damage: 10
+    enemy_name: Zombie E
+    description: Normal enemy
+    hp: 100
+    damage: 5
+  - id: 6
+    enemy_id: E_006
+    enemy_name: Zombie F
+    description: Normal enemy
+    hp: 100
+    damage: 5
+  - id: 7
+    enemy_id: E_007
+    enemy_name: Zombie G
+    description: Normal enemy
+    hp: 100
+    damage: 5
+  - id: 8
+    enemy_id: E_008
+    enemy_name: Zombie H
+    description: Normal enemy
+    hp: 100
+    damage: 5
+  - id: 9
+    enemy_id: E_009
+    enemy_name: Zombie I
+    description: Normal enemy
+    hp: 100
+    damage: 5

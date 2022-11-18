@@ -51,6 +51,7 @@ MonoBehaviour:
     m_Bits: 384
   pool_name: BulletHandGun
   pool_nameImpact: ImpactHandGun
+  pool_nameBloodImpact: BloodImpactHandGun
   timeFly: 2
 --- !u!54 &6389232926293641760
 Rigidbody:

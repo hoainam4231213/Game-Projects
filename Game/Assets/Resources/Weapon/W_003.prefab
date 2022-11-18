@@ -48,10 +48,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trans_aim: {fileID: 0}
   animatorOverride: {fileID: 22100000, guid: 4cf5b7a7a46f52648ae7b94c1cd8fbfa, type: 2}
-  databinding: {fileID: 0}
   prefab_projecties: {fileID: 7953539335443333412, guid: 5c0d174f9b966dc4e9d93e8197f78f44, type: 3}
   prefab_impact: {fileID: 6980307580006375303, guid: 732c2ec973ce1ee46bb61fde42183b92, type: 3}
+  prefab_blood_impact: {fileID: 711333375562897971, guid: 4bea7ed50d5d56248b74c6e75793458d, type: 3}
   muzzleFlash: {fileID: 0}
+  damge: 0
   rof: 0.1
   reloadTime: 3.7
   force: 1500

@@ -12,6 +12,7 @@ public class MissionControl : BYSingleton<MissionControl>
     public List<WaveInits> waveInits;
     private int numberEnemy;
     private int waveIndex;
+    private string waveName;
     public GameUI gameUI;
     // Start is called before the first frame update
     IEnumerator Start()
@@ -35,6 +36,7 @@ public class MissionControl : BYSingleton<MissionControl>
         }
         else
         {
+            waveName = ConfigManager.instance.configWave.GetRecordByKeySearch(waveInits[waveIndex].wave_id).Wave_name;
             DialogManager.instance.ShowDialog(DialogIndex.WaveDialog);
             yield return new WaitForSeconds(waveInits[waveIndex].delayTime);
             DialogManager.instance.HideDialog(DialogIndex.WaveDialog);
@@ -63,17 +65,11 @@ public class MissionControl : BYSingleton<MissionControl>
 
 
     }
-    public int GetWaveIndex
+    public string GetWaveIndex
     {
         get
         {
-            int id = 0;
-            if (waveIndex >= 0)
-            {
-                string[] s = (waveInits[waveIndex].wave_id).Split('_');
-                id = int.Parse(s[1]);
-            }
-            return id;
+            return waveName;
         }
     }
 

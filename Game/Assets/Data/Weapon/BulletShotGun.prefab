@@ -67,6 +67,7 @@ MonoBehaviour:
     m_Bits: 384
   pool_name: BulletShotGun
   pool_nameImpact: ImpactShotGun
+  pool_nameBloodImpact: BloodImpactShotGun
   timeFly: 0.1
 --- !u!1001 &1230925946450116883
 PrefabInstance:

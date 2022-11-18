@@ -17,6 +17,7 @@ public class WeaponBehaviour : MonoBehaviour
     public PlayerDatabinding databinding;
     public Transform prefab_projecties;
     public Transform prefab_impact;
+    public Transform prefab_blood_impact;
     public MuzzleFlash muzzleFlash;
 
     public int damge;

@@ -19,7 +19,7 @@ public class WaveDialog : BaseDialog
 
     public void Update()
     {
-        waveIndex.text = "WAVE " + MissionControl.instance.GetWaveIndex;
+        waveIndex.text = MissionControl.instance.GetWaveIndex;
     }
 
 

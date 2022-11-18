@@ -14,6 +14,8 @@ public class HandGun : WeaponBehaviour
         BYPoolManager.instance.AddNewPool(pool_bullet);
         BYPool pool_impact = new BYPool { namePool = prefab_impact.name, total = clip_size / 4, prefab_ = prefab_impact };
         BYPoolManager.instance.AddNewPool(pool_impact);
+        BYPool pool_Bloodimpact = new BYPool { namePool = prefab_blood_impact.name, total = clip_size / 4, prefab_ = prefab_blood_impact };
+        BYPoolManager.instance.AddNewPool(pool_Bloodimpact);
     }
 }
 

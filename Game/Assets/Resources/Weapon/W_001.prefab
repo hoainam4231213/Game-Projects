@@ -92,16 +92,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c1738dfda034b44f9b7b0e1b8218bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trans_aim: {fileID: 0}
   animatorOverride: {fileID: 22100000, guid: bdd288459e46851428cc4320bc436fe3, type: 2}
   prefab_projecties: {fileID: 7953539335443333412, guid: 4e38ec55bb5850f439b2c538001d1420, type: 3}
   prefab_impact: {fileID: 6980307580006375303, guid: 5f32c6eb22a3241449643874423f1b59, type: 3}
+  prefab_blood_impact: {fileID: 711333375562897971, guid: b85ef8139fbcfa746b2954a470627418, type: 3}
   muzzleFlash: {fileID: 0}
   damge: 0
-  clip_size: 0
   rof: 1
   reloadTime: 2.7
   force: 1500
-  projecties: 0
 --- !u!1001 &1402510007875081226
 PrefabInstance:
   m_ObjectHideFlags: 0

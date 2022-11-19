@@ -27,7 +27,8 @@ public class IHandGun : IWeaponHandle
         Transform bullet_trans = BYPoolManager.instance.Spawn(wp_behaviour.prefab_projecties.name);
         bullet_trans.position = wp_behaviour.muzzleFlash.transform.position;
         Vector3 pos = wp_behaviour.trans_aim.position;
-        pos.y = bullet_trans.position.y;
+        float x = (100 - wp_behaviour.accuracy) * 0.01f;
+        pos.x -= UnityEngine.Random.RandomRange(-x, x);
         Vector3 dir = pos - bullet_trans.position;
         dir.Normalize();
         BulletData bulletData = new BulletData();

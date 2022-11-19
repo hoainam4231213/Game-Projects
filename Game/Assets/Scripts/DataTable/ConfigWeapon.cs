@@ -62,6 +62,15 @@ public class ConfigWeaponRecord
             return rof;
         }
     }
+    [SerializeField]
+    private int accuracy;
+    public int Accuracy
+    {
+        get
+        {
+            return accuracy;
+        }
+    }
 }
 
 

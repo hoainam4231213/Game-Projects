@@ -27,6 +27,7 @@ public class WeaponBehaviour : MonoBehaviour
     public float force;
     [NonSerialized]
     public int projecties;
+    public int accuracy;
 
     private float rof;
     private float ChangeGunTime = 1;
@@ -45,6 +46,7 @@ public class WeaponBehaviour : MonoBehaviour
         databinding = gameObject.GetComponentInParent<PlayerDatabinding>();
         muzzleFlash = gameObject.GetComponentInChildren<MuzzleFlash>();
         rof = weaponData.cf.Rof;
+        accuracy = weaponData.cf.Accuracy;
         damge = weaponData.cf.Damge;
         clip_size = weaponData.cf.Clip_size;
         projecties = clip_size / 2;

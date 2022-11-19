@@ -20,6 +20,7 @@ MonoBehaviour:
     damge: 10
     clip_size: 12
     rof: 1
+    accuracy: 100
   - id: 2
     weapon_id: W_002
     weapon_name: Shotgun
@@ -27,6 +28,7 @@ MonoBehaviour:
     damge: 5
     clip_size: 24
     rof: 1.2
+    accuracy: 50
   - id: 3
     weapon_id: W_003
     weapon_name: MachineGun
@@ -34,6 +36,7 @@ MonoBehaviour:
     damge: 4
     clip_size: 100
     rof: 0.2
+    accuracy: 100
   - id: 4
     weapon_id: W_004
     weapon_name: RocketLauncher
@@ -41,3 +44,4 @@ MonoBehaviour:
     damge: 40
     clip_size: 4
     rof: 2
+    accuracy: 100

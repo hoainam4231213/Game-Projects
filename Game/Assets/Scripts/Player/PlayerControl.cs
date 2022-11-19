@@ -9,8 +9,10 @@ public class PlayerControl : MonoBehaviour
     public Transform trans;
     public CharacterController characterController;
     public PlayerDatabinding databinding;
-    public WeaponControl weaponControl;
+    private WeaponControl weaponControl;
     private Vector3 moveDir;
+    [SerializeField]
+    private Transform detectEnemy_trans;
     
     private bool isGround;
     private int maxHP = 200;
@@ -45,6 +47,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         hp = maxHP;
+        detectEnemy_trans.gameObject.SetActive(false);
         OnHPChange?.Invoke(hp, maxHP);
     }
 
@@ -108,8 +111,13 @@ public class PlayerControl : MonoBehaviour
     {
         if (enemy_list.Count > 0)
         {
+            detectEnemy_trans.gameObject.SetActive(true);
+            Vector3 dectectPos = enemy_list[0].position;
+            dectectPos.y = 0.1f;
+            detectEnemy_trans.position = dectectPos;
             if (isAim)
             {
+
                 Vector3 dir = enemy_list[0].position - trans.position;
                 dir.Normalize();
                 Quaternion q = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z), Vector3.up);
@@ -122,7 +130,10 @@ public class PlayerControl : MonoBehaviour
             }
         }
         else
+        {
+            detectEnemy_trans.gameObject.SetActive(false);
             weaponControl.currentGun.OnFire(false);
+        }
     }
 
     public void AddEnemyToList(Transform trans)

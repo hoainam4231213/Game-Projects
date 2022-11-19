@@ -50,6 +50,7 @@ public class ZombieControl : EnemyControl
 
     public override void OnDamge(BulletData bulletData)
     {
+        base.OnDamge(bulletData);
         hp -= bulletData.damge;
         if (hp <= 0)
         {

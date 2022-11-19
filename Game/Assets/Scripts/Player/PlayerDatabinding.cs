@@ -41,6 +41,13 @@ public class PlayerDatabinding : MonoBehaviour
         }
     }
 
+    public bool TakeDamge
+    {
+        set
+        {
+            animator.Play("TakeDamge", 1, 0);
+        }
+    }
     public bool Reload
     {
         set

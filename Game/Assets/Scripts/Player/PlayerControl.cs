@@ -11,11 +11,13 @@ public class PlayerControl : MonoBehaviour
     public PlayerDatabinding databinding;
     public WeaponControl weaponControl;
     private Vector3 moveDir;
-    public float speed;
+    
     private bool isGround;
-    public bool isAim;
     private int maxHP = 200;
     private int hp;
+
+    public float speed;
+    public bool isAim;
     public float shootRange = 9;
     public List<Transform> enemy_list = new List<Transform>();
     public int HP
@@ -33,7 +35,7 @@ public class PlayerControl : MonoBehaviour
             return maxHP;
         }
     }
-    public event Action<int,int> OnHPChange;
+    public event Action<int, int> OnHPChange;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -43,7 +45,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         hp = maxHP;
-        OnHPChange?.Invoke(hp,maxHP);
+        OnHPChange?.Invoke(hp, maxHP);
     }
 
     // Update is called once per frame
@@ -57,6 +59,14 @@ public class PlayerControl : MonoBehaviour
         //  Vector3 mousePos = hitInfo.point - trans.position;
         //  mousePos.Normalize();
         //   mousePos.y = trans.position.y;
+        if (moveDir.magnitude > 0)
+        {
+            isAim = false;
+        }
+        else
+        {
+            isAim = true;
+        }
 
         if (isAim)
         {
@@ -66,14 +76,12 @@ public class PlayerControl : MonoBehaviour
         }
         else
         {
-            if (moveDir.magnitude > 0)
-            {
-                moveDir = Quaternion.Euler(0, 45f, 0) * moveDir;
-                Quaternion q = Quaternion.LookRotation(moveDir, Vector3.up);
-                trans.rotation = q;
+            moveDir = Quaternion.Euler(0, 45f, 0) * moveDir;
+            Quaternion q = Quaternion.LookRotation(moveDir, Vector3.up);
+            trans.rotation = q;
+            speed = 3.5f;
 
-            }
-            databinding.MoveDir = new Vector3(0, 0, moveDir.magnitude);
+            databinding.MoveDir = new Vector3(0, 0, moveDir.magnitude * 2);
         }
         isGround = characterController.isGrounded;
         Vector3 pos = moveDir;
@@ -86,31 +94,35 @@ public class PlayerControl : MonoBehaviour
 
     public void OnDamge(EnemyDamageData enemyDamageData)
     {
+        databinding.TakeDamge = true;
         hp -= enemyDamageData.damage;
         if (hp <= 0)
         {
             hp = 0;
             MissionControl.instance.OnPlayerDead();
         }
-        OnHPChange?.Invoke(hp,maxHP);
+        OnHPChange?.Invoke(hp, maxHP);
     }
 
     public void DectectEnemy()
     {
         if (enemy_list.Count > 0)
         {
-            Vector3 dir = enemy_list[0].position - trans.position;
-            dir.Normalize();
-            Quaternion q = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z), Vector3.up);
-            trans.rotation = Quaternion.Slerp(trans.rotation, q, Time.deltaTime * 360);
-            isAim = true;
-            weaponControl.currentGun.OnFire(true);
+            if (isAim)
+            {
+                Vector3 dir = enemy_list[0].position - trans.position;
+                dir.Normalize();
+                Quaternion q = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z), Vector3.up);
+                trans.rotation = Quaternion.Slerp(trans.rotation, q, Time.deltaTime * 360);
+                weaponControl.currentGun.OnFire(true);
+            }
+            else
+            {
+                weaponControl.currentGun.OnFire(false);
+            }
         }
         else
-        {
-            isAim = false;
             weaponControl.currentGun.OnFire(false);
-        }
     }
 
     public void AddEnemyToList(Transform trans)

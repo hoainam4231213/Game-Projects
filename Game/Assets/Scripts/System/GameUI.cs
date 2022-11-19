@@ -13,6 +13,7 @@ public class GameUI : MonoBehaviour
     private WeaponControl weaponControl;
     private WeaponBehaviour current_wp;
     private PlayerControl playerControl;
+    public RectTransform parentHub;
     // Start is called before the first frame update
     void Start()
     {

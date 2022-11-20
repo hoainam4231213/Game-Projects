@@ -26,7 +26,7 @@ MonoBehaviour:
     mission_name: Kill All
     description: Kill All
     mission_type: 1
-    waves: W_001:5;W_003:5:W_004:5
+    waves: W_003:5;W_004:5
     rewards: 20
     map: Scene City
   - id: 3
@@ -36,4 +36,4 @@ MonoBehaviour:
     mission_type: 2
     waves: W_001:5;W_004:5:W_005:5
     rewards: 20
-    map: Scene Town
+    map: Scene Neighborhood

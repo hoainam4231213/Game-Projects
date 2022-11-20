@@ -17,21 +17,21 @@ MonoBehaviour:
     wave_id: W_001
     wave_name: Wave 1
     enemies_id: E_001;E_002;E_003;E_004
-    number: 8
+    number: 5
   - id: 2
     wave_id: W_002
     wave_name: Wave 2
     enemies_id: E_005;E_003;E_006;E_007;E_004;E_008;E_009
-    number: 8
+    number: 5
   - id: 3
     wave_id: W_003
     wave_name: Wave 3
-    enemies_id: E_001;E_002;E_003
+    enemies_id: E_005;E_003;E_006;E_007;E_004;E_008;E_009
     number: 8
   - id: 4
     wave_id: W_004
     wave_name: Wave 4
-    enemies_id: E_003;E_004
+    enemies_id: E_005;E_003;E_006;E_007;E_004;E_008;E_009
     number: 8
   - id: 5
     wave_id: W_005
